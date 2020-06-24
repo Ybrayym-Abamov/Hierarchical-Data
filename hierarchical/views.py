@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from hierarchical.models import Hierarchy
 
-# Create your views here.
+
+def hierarchical_data_view(request):
+    data = Hierarchy.objects.all()
+    return render(request, 'main.html', {"data": data})
